@@ -1,184 +1,179 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
+.lab-shell {
   position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
+  min-height: 100vh;
+  display: grid;
   place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  background: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 30%), #2a2a2a;
+  overflow: hidden;
+  padding: 34px 24px;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+.keyboard-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 52px) 0 0 / 52px 52px,
+    linear-gradient(rgba(255,255,255,0.04) 0 2px, transparent 2px 52px) 0 0 / 52px 52px,
+    linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.15));
+  opacity: 0.65;
+  filter: blur(7px);
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
+.lab-paper {
   position: relative;
-  width: 100%;
+  z-index: 1;
+  width: min(940px, 78vw);
+  background: #f3f0eb;
+  border: 1px solid rgba(28, 28, 28, 0.35);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.38);
+  padding: 28px 32px 24px;
+  transform: rotate(-0.8deg);
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+.lab-header {
+  border-bottom: 2px solid rgba(49, 60, 77, 0.38);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.74rem;
+  color: #4d5867;
+  font-weight: 600;
+}
+
+.lab-header h1 {
+  margin: 0;
+  color: #222a32;
+  font-size: clamp(2.2rem, 2.6vw, 3.1rem);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.45fr 1.3fr;
+  gap: 0;
+  margin-bottom: 16px;
+  border: 1px solid rgba(32, 42, 53, 0.28);
+  background: rgba(255,255,255,0.08);
+}
+
+.info-box {
+  min-height: 220px;
+  border-right: 1px solid rgba(32, 42, 53, 0.28);
+}
+
+.info-box:last-child {
+  border-right: none;
+}
+
+.info-box h2 {
+  margin: 0;
+  padding: 12px 14px;
+  background: rgba(95, 102, 110, 0.12);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #2d3844;
+  border-bottom: 1px solid rgba(32, 42, 53, 0.22);
+}
+
+.info-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.info-box li {
+  border-bottom: 1px solid rgba(32, 42, 53, 0.22);
+  padding: 10px 14px;
+  color: #2d3945;
+  line-height: 1.4;
+  font-size: 0.8rem;
+  min-height: 39px;
+  display: flex;
+  align-items: center;
+}
+
+.info-box li:last-child {
+  border-bottom: none;
+}
+
+.procedure {
+  border: 1px solid rgba(32, 42, 53, 0.28);
+  background: rgba(255,255,255,0.08);
+}
+
+.procedure h2 {
+  margin: 0;
+  padding: 12px 14px;
+  background: rgba(95, 102, 110, 0.12);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #2d3844;
+  border-bottom: 1px solid rgba(32, 42, 53, 0.22);
+  font-size: 0.8rem;
+}
+
+.procedure ol {
+  list-style: none;
+  margin: 0;
+  padding: 10px 14px 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 14px;
+}
+
+.procedure li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #2f3d49;
+  line-height: 1.45;
+  font-size: 0.8rem;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #2d3844;
+  color: #f3f0eb;
+  font-size: 0.73rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+@media (max-width: 760px) {
+  .lab-shell {
+    padding: 22px 14px;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .lab-paper {
+    width: min(100%, 620px);
+    padding: 22px 18px 18px;
+    transform: none;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-box {
+    border-right: none;
+    border-bottom: 1px solid rgba(32, 42, 53, 0.22);
+  }
+
+  .procedure ol {
+    grid-template-columns: 1fr;
   }
 }

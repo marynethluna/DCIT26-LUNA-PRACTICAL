@@ -12,7 +12,10 @@ function App() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', darkMode);
+    const root = document.documentElement;
+    root.classList.toggle('dark', darkMode);
+    document.body.style.backgroundColor = darkMode ? '#020817' : '#f8fafc';
+    document.body.style.color = darkMode ? '#e2e8f0' : '#0f172a';
   }, [darkMode]);
 
   const toggleFavorite = (userId) => {

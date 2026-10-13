@@ -1,121 +1,107 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
+const components = [
+  {
+    name: 'CPU',
+    function: 'Processes instructions and performs calculations.',
+    use: 'Runs the operating system and software.',
+  },
+  {
+    name: 'RAM',
+    function: 'Stores data temporarily while the computer is running.',
+    use: 'Helps apps load and work quickly.',
+  },
+  {
+    name: 'Storage',
+    function: 'Keeps files and programs for long-term use.',
+    use: 'Saves documents, videos, and programs.',
+  },
+  {
+    name: 'Motherboard',
+    function: 'Connects all computer parts together.',
+    use: 'Allows communication between devices.',
+  },
+  {
+    name: 'GPU',
+    function: 'Handles graphics and visual output.',
+    use: 'Displays images, videos, and games.',
+  },
+]
+
+const steps = [
+  'Open the lab manual and read the objective of the activity before starting.',
+  'Prepare all tools and equipment needed for the experiment or task.',
+  'Check the area for safety and ensure the workstation is organized.',
+  'Identify each computer component and its purpose before handling anything.',
+  'Connect the required devices carefully and avoid loose cable connections.',
+  'Turn on the system only after confirming all setup steps are complete.',
+  'Observe the startup process and note any issues that appear during testing.',
+  'Run the software or application required for the activity as instructed.',
+  'Record the results accurately and compare them with the expected outcome.',
+  'Troubleshoot any errors using safe and proper procedures.',
+  'Shutdown the system correctly and return all materials to their proper places.',
+  'Submit the completed lab output and clean the workstation before leaving.',
+]
+
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="lab-shell">
+      <div className="keyboard-glow" aria-hidden="true" />
 
-      <div className="ticks"></div>
+      <main className="lab-paper">
+        <header className="lab-header">
+          <p className="eyebrow">Computer Fundamentals</p>
+          <h1>Laboratory Activity</h1>
+        </header>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <section className="info-grid" aria-label="Computer parts information">
+          <div className="info-box">
+            <h2>Components</h2>
+            <ul>
+              {components.map((item) => (
+                <li key={item.name}>
+                  <span>{item.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+          <div className="info-box">
+            <h2>Functions</h2>
+            <ul>
+              {components.map((item) => (
+                <li key={`${item.name}-function`}>
+                  <span>{item.function}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="info-box">
+            <h2>Uses</h2>
+            <ul>
+              {components.map((item) => (
+                <li key={`${item.name}-use`}>
+                  <span>{item.use}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="procedure">
+          <h2>Instructions</h2>
+          <ol>
+            {steps.map((step, index) => (
+              <li key={step}>
+                <span className="step-number">{index + 1}</span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      </main>
+    </div>
   )
 }
 
