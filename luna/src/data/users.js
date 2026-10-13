@@ -1,0 +1,58 @@
+export const users = [
+  {
+    id: 1,
+    name: 'Alice Johnson',
+    email: 'alice.johnson@example.com',
+    company: 'TechNova Solutions',
+    role: 'Frontend Developer',
+  },
+  {
+    id: 2,
+    name: 'Michael Smith',
+    email: 'michael.smith@example.com',
+    company: 'CodeCraft Inc.',
+    role: 'Backend Developer',
+  },
+  {
+    id: 3,
+    name: 'Sophia Garcia',
+    email: 'sophia.garcia@example.com',
+    company: 'PixelWorks Studio',
+    role: 'UI/UX Designer',
+  },
+  {
+    id: 4,
+    name: 'James Wilson',
+    email: 'james.wilson@example.com',
+    company: 'TechNova Solutions',
+    role: 'Project Manager',
+  },
+  {
+    id: 5,
+    name: 'Olivia Martinez',
+    email: 'olivia.martinez@example.com',
+    company: 'CloudSphere Ltd.',
+    role: 'Software Engineer',
+  },
+  {
+    id: 6,
+    name: 'Ethan Brown',
+    email: 'ethan.brown@example.com',
+    company: 'CodeCraft Inc.',
+    role: 'Quality Assurance Tester',
+  },
+  {
+    id: 7,
+    name: 'Isabella Davis',
+    email: 'isabella.davis@example.com',
+    company: 'PixelWorks Studio',
+    role: 'Product Designer',
+  },
+  {
+    id: 8,
+    name: 'Noah Anderson',
+    email: 'noah.anderson@example.com',
+    company: 'CloudSphere Ltd.',
+    role: 'DevOps Engineer',
+  },
+];
