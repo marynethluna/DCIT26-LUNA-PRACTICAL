@@ -1,18 +1,18 @@
 function Button({
-  children,
+  label,
   onClick,
-  type = "button",
-  variant = "primary",
+  variant = 'primary',
+  children,
+  type = 'button',
   disabled = false,
-  className = "",
+  className = '',
 }) {
   const baseStyles =
-    "rounded-lg px-4 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:cursor-not-allowed disabled:opacity-50";
+    'rounded-lg px-4 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-blue-400 disabled:cursor-not-allowed disabled:opacity-50';
 
   const variants = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700",
-    secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
-    danger: "bg-red-600 text-white hover:bg-red-700",
+    primary: 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600',
+    danger: 'bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600',
   };
 
   return (
@@ -20,9 +20,10 @@ function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${variants[variant] || variants.primary} ${className}`}
+      aria-label={label || (typeof children === 'string' ? children : undefined)}
+      className={`${baseStyles} ${variants[variant] || variants.primary} ${className}`.trim()}
     >
-      {children}
+      {children || label}
     </button>
   );
 }
