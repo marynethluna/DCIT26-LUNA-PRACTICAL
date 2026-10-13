@@ -1,33 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import Button from '../components/Button';
 
 function NotFound() {
   return (
-    <main className="flex min-h-[70vh] items-center justify-center bg-gray-50 px-6 py-12">
-      <section className="w-full max-w-lg rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-        <p className="text-7xl font-extrabold text-blue-600">404</p>
-
-        <h1 className="mt-4 text-2xl font-bold text-gray-900">
-          Page Not Found
-        </h1>
-
-        <p className="mt-3 leading-7 text-gray-600">
-          Sorry, the page you're looking for doesn't exist or may have been
-          moved.
+    <main className="flex min-h-[70vh] items-center justify-center bg-slate-50 px-6 py-12 dark:bg-slate-950">
+      <section className="w-full max-w-lg rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm dark:border-slate-700 dark:bg-slate-900">
+        <p className="text-7xl font-extrabold text-blue-600 dark:text-blue-400">404</p>
+        <h1 className="mt-4 text-2xl font-bold text-slate-900 dark:text-slate-100">Page Not Found</h1>
+        <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">
+          The page you are looking for does not exist.
         </p>
 
         <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-          <Link
-            to="/"
-            className="rounded-lg bg-blue-600 px-5 py-3 font-medium text-white transition hover:bg-blue-700"
-          >
-            Back to Home
+          <Link to="/">
+            <Button label="Back to Home" variant="primary">
+              Back to Home
+            </Button>
           </Link>
-
-          <Link
-            to="/users"
-            className="rounded-lg bg-gray-200 px-5 py-3 font-medium text-gray-800 transition hover:bg-gray-300"
-          >
-            Browse Users
+          <Link to="/users">
+            <Button label="Browse Users" variant="danger">
+              Browse Users
+            </Button>
           </Link>
         </div>
       </section>
